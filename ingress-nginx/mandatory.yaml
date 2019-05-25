@@ -18,6 +18,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
 
 ---
+
 kind: ConfigMap
 apiVersion: v1
 metadata:
@@ -28,6 +29,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
 
 ---
+
 kind: ConfigMap
 apiVersion: v1
 metadata:
@@ -38,6 +40,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
 
 ---
+
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -48,6 +51,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
 
 ---
+
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
 metadata:
@@ -104,6 +108,7 @@ rules:
   - update
 
 ---
+
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: Role
 metadata:
@@ -149,6 +154,7 @@ rules:
   - get
 
 ---
+
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: RoleBinding
 metadata:
@@ -278,10 +284,12 @@ spec:
   - name: http
     port: 80
     targetPort: 80
+    nodePort: 80
     protocol: TCP
   - name: https
     port: 443
     targetPort: 443
+    nodePort: 443
     protocol: TCP
   selector:
     app.kubernetes.io/name: ingress-nginx
