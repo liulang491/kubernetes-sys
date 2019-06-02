@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: busybox
+      func: debug
+  template:
+    metadata:
+      labels:
+        app: busybox
+        func: debug
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: busybox
+        image: registry.cn-shanghai.aliyuncs.com/yingzhuo/busybox:latest
+        imagePullPolicy: Always
