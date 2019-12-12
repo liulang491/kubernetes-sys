@@ -4,6 +4,6 @@ default:
 	@echo "no default target"
 
 github:
-	git add .
-	git commit -m '$(timestamp)'
-	git push
+	@git add .
+	@git commit -m '$(timestamp)'
+	@git push
