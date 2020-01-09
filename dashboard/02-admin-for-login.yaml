@@ -9,9 +9,9 @@ roleRef:
   name: cluster-admin
   apiGroup: rbac.authorization.k8s.io
 subjects:
-- kind: ServiceAccount
-  name: admin
-  namespace: kube-system
+  - kind: ServiceAccount
+    name: admin
+    namespace: kube-system
 
 ---
 

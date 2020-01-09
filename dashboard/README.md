@@ -19,7 +19,6 @@ kubectl apply -f ./02-admin-for-login.yaml
     bash ./show-token.sh
     ```
 
-
 ### 参考
  
  * [Github](https://github.com/kubernetes/dashboard)
