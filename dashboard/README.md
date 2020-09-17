@@ -3,21 +3,22 @@
 ### 安装
 
 ```bash
-kubectl apply -f ./01-kubernetes-dashboard.yaml
-kubectl apply -f ./02-admin-for-login.yaml
+kubectl apply -f ./kubernetes-dashboard.yaml
 ```
 
 **注意:** dashboard初始化自身需要花费一定时间，要耐心等待3到5分钟。
 
 
-### 注意事项
+### 创建登录令牌
 
-* (1) 由于`gcr.io`在中国大陆地区无法直接访问，本人将dashboard所需镜像搬迁至阿里云。
-* (2) 如何获取登录令牌:
+```bash
+kubectl create serviceaccount dashboard-admin-sa
 
-    ```bash
-    bash ./show-token.sh
-    ```
+kubectl create clusterrolebinding dashboard-admin-sa \
+    --clusterrole=cluster-admin --serviceaccount=default:dashboard-admin-sa
+
+kubectl get secrets
+```
 
 ### 参考
  
